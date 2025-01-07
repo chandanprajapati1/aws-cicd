@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(session({ 
+app.use(session({
     cookie: { maxAge: 60000 },
     store: new session.MemoryStore,
     saveUninitialized: true,

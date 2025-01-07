@@ -1,26 +1,41 @@
-# Use a Node.js base image
-FROM node:18
+ARG BASE_IMAGE=957779811736.dkr.ecr.ap-south-1.amazonaws.com/node:latest
+FROM ${BASE_IMAGE} As build
 
-# Set working directory
+LABEL Brandpts-node="1.0.0.0" \
+      contact="Chandan" \
+      description="A minimal Node.js Docker image for Brand-pts application in Staging" \
+      base.image="Node" \
+      maintainer="chandanprajapati00001@gmail.com"
+
+ENV TZ=Asia/Kolkata
+
+# Set the timezone
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 WORKDIR /app
+ADD . /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
 
-# Install application dependencies
+# Install dependencies again
+ # Install dependencies (this is where npm install will happen)
 RUN npm install
 
-# Install elastic-apm-node
-RUN npm install elastic-apm-node --save
+# Build the app
+#RUN npm run build
 
-# Copy the rest of the application code
-COPY . .
+# Final stage
+FROM 957779811736.dkr.ecr.ap-south-1.amazonaws.com/node:latest
+WORKDIR /app
+COPY --from=build /app .
 
-# Expose the port your application will run on
-EXPOSE 3735 
+# Set a non-root user
+USER node
 
-# Define environment variables for APM Server
-#ENV APM_SERVER_URL=http://0.0.0.0:8200
+EXPOSE 3735
 
-# Start your Node.js application
-CMD ["node", "index.js"]
+# Health check
+#HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+ # CMD curl --fail http://staging.marketplace.envr.earth/health || exit 1
+
+# Start the app
+CMD ["npm", "start", "index.js"]
