@@ -91,5 +91,18 @@
     "registeredAt": "2025-01-08T05:36:22.658Z",
     "registeredBy": "arn:aws:iam::957779811736:root",
     "enableFaultInjection": false,
-    "tags": []
+    "tags": [
+        {
+            "key": "Environment",
+            "value": "Production"
+        },
+        {
+            "key": "Project",
+            "value": "Brand-Pts"
+        },
+        {
+            "key": "Owner",
+            "value": "DevOps-Team"
+        }
+    ]
 }
