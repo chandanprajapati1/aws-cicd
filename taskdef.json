@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:957779811736:task-definition/Brand-Pts-Task:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:957779811736:task-definition/Brand-pts-task:1",
     "containerDefinitions": [
         {
             "name": "Brand-Pts-Container",
-            "image": "957779811736.dkr.ecr.ap-south-1.amazonaws.com/brand-pts:latest",
+            "image": "957779811736.dkr.ecr.ap-south-1.amazonaws.com/brand-pts:v1.2",
             "cpu": 0,
             "portMappings": [
                 {
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/Brand-Pts-Task",
+                    "awslogs-group": "/ecs/Brand-pts-task",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -35,7 +35,7 @@
             "systemControls": []
         }
     ],
-    "family": "Brand-Pts-Task",
+    "family": "Brand-pts-task",
     "taskRoleArn": "arn:aws:iam::957779811736:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::957779811736:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
@@ -88,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-01-07T10:47:52.046Z",
+    "registeredAt": "2025-01-08T05:36:22.658Z",
     "registeredBy": "arn:aws:iam::957779811736:root",
     "enableFaultInjection": false,
     "tags": []
