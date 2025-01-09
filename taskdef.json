@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:957779811736:task-definition/Brand-pts-task:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:957779811736:task-definition/Brand-pts-task:7",
     "containerDefinitions": [
         {
             "name": "Brand-Pts-Container",
-            "image": "957779811736.dkr.ecr.ap-south-1.amazonaws.com/brand-pts:v1.2",
+            "image": "957779811736.dkr.ecr.ap-south-1.amazonaws.com/brand-pts:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "brand-pts-container-3735-tcp",
+                    "name": "brand-3735",
                     "containerPort": 3735,
                     "hostPort": 3735,
                     "protocol": "tcp",
@@ -39,7 +39,7 @@
     "taskRoleArn": "arn:aws:iam::957779811736:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::957779811736:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 7,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -88,21 +88,13 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-01-08T05:36:22.658Z",
+    "registeredAt": "2025-01-09T05:40:31.771Z",
     "registeredBy": "arn:aws:iam::957779811736:root",
     "enableFaultInjection": false,
     "tags": [
         {
-            "key": "Environment",
-            "value": "Production"
-        },
-        {
-            "key": "Project",
-            "value": "Brand-Pts"
-        },
-        {
-            "key": "Owner",
-            "value": "DevOps-Team"
+            "key": "Name",
+            "value": "Brand-pts"
         }
     ]
 }
