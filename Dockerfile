@@ -30,7 +30,7 @@ COPY --from=build /app .
 
 # Set a non-root user
 USER node
-
+#test
 EXPOSE 3735
 
 # Health check
