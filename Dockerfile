@@ -37,5 +37,5 @@ EXPOSE 3735
 #HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
  # CMD curl --fail http://staging.marketplace.envr.earth/health || exit 1
 
-# Start the app
+# Start the app11
 CMD ["npm", "start", "index.js"]
